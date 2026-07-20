@@ -30,3 +30,35 @@ main {
 main:has(.back-link) {
   text-align: center;
 }
+
+.gallery-card {
+  border: 1px solid #808080;
+}
+
+.gallery-image {
+  display: block;
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.gallery-info {
+  display: flex;
+  justify-content: space-around;
+  padding: 8px;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.info-title {
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.info-value {
+  font-size: 12px;
+}

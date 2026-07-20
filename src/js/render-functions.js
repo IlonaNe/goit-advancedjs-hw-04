@@ -13,12 +13,43 @@ const lightbox = new SimpleLightbox(".gallery a", {
 
 export function createGallery(images) {
     const markup = images
-        .map(img => `
+      .map(
+        ({
+          webformatURL,
+          largeImageURL,
+          tags,
+          likes,
+          views,
+          comments,
+          downloads,
+        }) => `
         <li class="gallery-card">
-            <a href="${img.largeImageURL}">
-                <img class="gallery-image" src="${img.webformatURL}" alt="${img.tags}" />
+            <a href="${largeImageURL}">
+                <img class="gallery-image" src="${webformatURL}" alt="${tags}" />
             </a>
-        </li>
+
+            <div class="gallery-info">
+                <div class="info-item">
+                  <p class="info-title">Likes</p>
+                  <p class="info-value">${likes}</p>
+                </div>
+
+                <div class="info-item">
+                  <p class="info-title">Views</p>
+                  <p class="info-value">${views}</p>
+                </div>
+
+                <div class="info-item">
+                  <p class="info-title">Comments</p>
+                  <p class="info-value">${comments}</p>
+                </div>
+
+                <div class="info-item">
+                  <p class="info-title">Downloads</p>
+                  <p class="info-value">${downloads}</p>
+                </div>
+            </div>
+      </li>
     `).join("");
 
     gallery.insertAdjacentHTML("beforeend", markup);
